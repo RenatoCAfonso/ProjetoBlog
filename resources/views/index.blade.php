@@ -40,8 +40,7 @@
                                 <p>{{$post->texto}}
                             </div>
                             <div class="card-footer border-light text-dark" style="font-size:10px">
-                                 {{\Carbon\Carbon::parse($post->created_at)->format('d/m/Y')}} -
-                                 {{\Carbon\Carbon::parse($post->created_at)->format('H:i')}}
+                                 {{$post->created_at}}
                             </div>
                          </div>                                            
                          @endforeach

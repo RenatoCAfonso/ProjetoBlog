@@ -14,3 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\BlogControlador@index')->name("postagens");
+
+Route::get('/form', 'App\Http\Controllers\BlogControlador@create');
+
+Route::post('/', 'App\Http\Controllers\BlogControlador@store');

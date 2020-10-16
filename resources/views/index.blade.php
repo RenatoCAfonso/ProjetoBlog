@@ -14,12 +14,15 @@
     </head>
     <body style="background-color: lightblue">
         <div class="container">
-            <div class= "card text-center bg-dark text-white">
-                <div class= "card-header border-dark m-3"><h2>Postagens</h2></div>
+            
+            <div class= "card  bg-dark text-white m-3"">
+                
+                <a href="/form" class="btn btn-dark btn-lg container" style="width: 50px; margin-left:0px">+</a>
+                
+                <div class= "card-header border-dark text-center"><h2>Postagens</h2></div>
+                
                 <div class="card-body">
-
-                    <h5 class="card-title">
-                        
+                    <h5 class="card-title text-center">     
                         @if ($postagens->previousPageUrl()!==null)
                         <a  style="margin-right: 50px; text-decoration:none; color: white" href="{{$postagens->previousPageUrl()}}"><<</a>
                         @endif
@@ -27,9 +30,9 @@
                         ({{$postagens->firstItem()}} a {{$postagens->lastItem()}})
                         @if ($postagens->nextPageUrl()!==null)
                         <a  style="margin-left: 50px; text-decoration:none; color: white" href="{{$postagens->nextPageUrl()}}">>></a> 
-                        @endif
-                        
+                        @endif           
                     </h5>
+                    
 
                          @foreach ($postagens as $post)
                          <div class= "card text-left border-light text-dark" style="margin: 50px">

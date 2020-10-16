@@ -25,7 +25,7 @@ class BlogControlador extends Controller
      */
     public function create()
     {
-        //
+        return view("form");
     }
 
     /**
@@ -36,7 +36,13 @@ class BlogControlador extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $n = new Blog();
+        $n->titulo = $request->input("titulo");
+        $n->texto = $request->input("texto");
+        $n->save();
+        return redirect()->route('postagens');
+
+        
     }
 
     /**

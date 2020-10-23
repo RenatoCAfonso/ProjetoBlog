@@ -33,8 +33,7 @@
                         @endif           
                     </h5>
                     
-
-                         @foreach ($postagens as $post)
+                        @foreach ($postagens as $post)
                          <div class= "card text-left border-light text-dark" style="margin: 50px">
                             <div class= "card-header border-light">
                                 <h2><strong>{{$post->titulo}}</strong></h2>                      
@@ -42,8 +41,11 @@
                             <div class="card-body border-light text-dark">
                                 <p>{{$post->texto}}
                             </div>
-                            <div class="card-footer border-light text-dark" style="font-size:10px">
-                                 {{$post->created_at}}
+                            <div class="card-footer border-light text-dark d-flex bd-highlight mb-1" style="font-size:10px">
+                                <div class='mr-auto p-1 bd-highlight'>{{$post->created_at}}</div>
+                                <div class="p-1 bd-highlight"><a href='/editar/{{$post->id}}' class='btn btn-sm btn-primary' style="width: 60px">Editar</a></div>
+                                <div class="p-1 bd-highlight"><a href='/apagar/{{$post->id}}' class='btn btn-sm btn-danger' style="width: 60px">Apagar</a></div>
+                                
                             </div>
                          </div>                                            
                          @endforeach

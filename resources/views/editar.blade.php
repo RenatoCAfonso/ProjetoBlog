@@ -11,16 +11,16 @@
     </head>
     <body style="background-color: lightblue">
         <div class="container">
-            <div class="mt-5"><h2><strong>Nova postagem</strong></h2></div>
+            <div class="mt-5"><h2><strong>Editar postagem</strong></h2></div>
             <hr>
             
-                <form action="/", method="POST">
+            <form action="/editar/{{$cat->id}}", method="POST">
                     @csrf
                     <div class="form-group mt-3">
                         <strong><label for="textPost" style="margin:10px">Título</label></strong>
-                        <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título">
+                        <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título" value="{{$cat->titulo}}">
                         <strong><label for="textPost" style="margin:10px">Postagem</label></strong>
-                        <textarea type="text" class="form-control" name="texto" id="texto" placeholder="Descrição da postagem" style="height: 200px"></textarea>
+                        <textarea type="text" class="form-control" name="texto" id="texto" placeholder="Descrição da postagem" style="height: 200px">{{$cat->texto}}</textarea>
                         
 
                     </div>

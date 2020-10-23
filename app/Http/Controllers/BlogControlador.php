@@ -36,13 +36,16 @@ class BlogControlador extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'titulo' => ['required'],
+            'texto' => ['required'],
+        ]);
+
         $n = new Blog();
         $n->titulo = $request->input("titulo");
         $n->texto = $request->input("texto");
         $n->save();
-        return redirect()->route('postagens');
-
-        
+        return redirect()->route('postagens');  
     }
 
     /**
@@ -64,7 +67,11 @@ class BlogControlador extends Controller
      */
     public function edit($id)
     {
-        //
+        $cat = Blog::find($id);
+        if(isset($cat)) {
+            return view('editar', compact('cat'));
+        }
+        return redirect('/');
     }
 
     /**
@@ -76,7 +83,19 @@ class BlogControlador extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $validatedData = $request->validate([
+            'titulo' => ['required'],
+            'texto' => ['required'],
+        ]);
+
+        $cat = Blog::find($id);
+        if(isset($cat)) {
+            $cat->titulo = $request->input('titulo');
+            $cat->texto = $request->input('texto');
+            $cat->save();
+        }
+        return redirect('/');
     }
 
     /**
@@ -87,6 +106,10 @@ class BlogControlador extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cat = Blog::find($id);
+        if(isset($cat)) {
+            $cat->delete();
+        }
+        return redirect('/');
     }
 }

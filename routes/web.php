@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\BlogControlador@index')->name("postagens");
 
-Route::get('/form', 'App\Http\Controllers\BlogControlador@create');
+Route::get('/form', 'App\Http\Controllers\BlogControlador@create')->name("form");
 
 Route::post('/', 'App\Http\Controllers\BlogControlador@store');
+
+Route::get('/editar/{id}', 'App\Http\Controllers\BlogControlador@edit');
+Route::post('/editar/{id}', 'App\Http\Controllers\BlogControlador@update');
+
+Route::get('/apagar/{id}', 'App\Http\Controllers\BlogControlador@destroy');

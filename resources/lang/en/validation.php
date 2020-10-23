@@ -130,8 +130,11 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'titulo' => [
+            'required' => 'É necessário incluir o título da postagem!',
+        ],
+        'texto' => [
+            'required' => 'É necessário incluir o conteúdo da postagem!',
         ],
     ],
 
